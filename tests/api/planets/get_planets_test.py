@@ -21,7 +21,7 @@ class TestGetPlanets:
         we should use them as an automation best practice.
         """
 
-    @pytest.mark.all_planets_test
+    @pytest.mark.get_all_planets_test
     def test_get_all_planets(self):
         # Verify GET all request to the '/planets' end point
 
@@ -116,7 +116,6 @@ class TestGetPlanets:
         assert resp.status_code == 404
         assert resp.json()['detail'] == 'Not found'
 
-
     @pytest.mark.get_empty_planet
     def test_get_empty_planet(self):
         # Verify the response when we request for a planet resource
@@ -181,7 +180,6 @@ class TestGetPlanets:
         assert resp.status_code == 404
         assert resp.json()['detail'] == 'Not found'
 
-
     @pytest.mark.post_test
     def test_post_request(self):
         # Verify the response when we send a POST request instead of the recommended GET request
@@ -242,7 +240,6 @@ class TestGetPlanets:
             assert ("HTTPSConnectionPool(host=\'http\', port=443): "
                     "Max retries exceeded with url: /swapi.dev/api/planets"
                     in str(e))
-
 
     @classmethod
     def teardown_class(cls):
